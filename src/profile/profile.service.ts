@@ -11,6 +11,8 @@ export class ProfileService {
    *
    * Because `Profile` is a singleton, this method takes no parameters. Can be
    * extended later to support multiple profiles.
+   *
+   * @throws Will throw if no profile exists.
    */
   async profile(): Promise<Profile> {
     return this.prisma.profile.findUniqueOrThrow({
