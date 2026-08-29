@@ -18,7 +18,9 @@ import { ProjectsModule } from './projects/projects.module.js';
     ConfigModule.forRoot(),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: process.env.NO_WRITE
+        ? true
+        : join(process.cwd(), 'src/schema.gql'),
       graphiql: false,
       plugins: [
         process.env.NODE_ENV === 'production'

@@ -13,3 +13,7 @@ After installing npm dependencies (`npm install`) and generating the Prisma Clie
 npm run start
 npm run start:dev # watch mode
 ```
+
+## Environment variables
+
+You can set `NO_WRITE` to make the app build GraphQL schema in-memory. This is useful when deploying to platforms with read-only file systems.
