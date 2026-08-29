@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
+import { PrismaModule } from './prisma/prisma.module.js';
 import { ProfileModule } from './profile/profile.module.js';
 import { SkillsModule } from './skills/skills.module.js';
 
@@ -16,6 +17,8 @@ import { SkillsModule } from './skills/skills.module.js';
       graphiql: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
+
+    PrismaModule,
 
     ProfileModule,
     SkillsModule,
