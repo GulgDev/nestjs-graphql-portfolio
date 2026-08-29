@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Profile {
+  name: String!
+  description: String!
+  links: [String!]!
+}
+
+type Query {
+  profile: Profile!
+}

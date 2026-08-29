@@ -6,6 +6,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { join } from 'path';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
+import { ProfileModule } from './profile/profile.module.js';
 
 @Module({
   imports: [
@@ -16,6 +17,8 @@ import { AppService } from './app.service.js';
       graphiql: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
+
+    ProfileModule,
   ],
   controllers: [AppController],
   providers: [AppService],

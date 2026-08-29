@@ -7,3 +7,16 @@ generator client {
 datasource db {
   provider = "sqlite"
 }
+
+enum Singleton {
+  ID
+}
+
+model Profile {
+  // Use an enum with a single value to enforce a single table row
+  id Singleton @id @default(ID)
+
+  name        String
+  description String
+  links       Json // an array of strings
+}
