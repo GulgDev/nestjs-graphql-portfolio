@@ -5,6 +5,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
 import { ProfileModule } from './profile/profile.module.js';
+import { SkillsModule } from './skills/skills.module.js';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ProfileModule } from './profile/profile.module.js';
     }),
 
     ProfileModule,
+    SkillsModule,
   ],
 })
 export class AppModule {}

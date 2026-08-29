@@ -19,4 +19,14 @@ model Profile {
   name        String
   description String
   links       Json // an array of strings
+  skills      Skill[]
+}
+
+model Skill {
+  id        Int       @id @default(autoincrement())
+  profileId Singleton
+  owner     Profile   @relation(fields: [profileId], references: [id])
+  name      String
+
+  @@unique([profileId, name])
 }

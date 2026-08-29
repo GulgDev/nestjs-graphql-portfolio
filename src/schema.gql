@@ -3,9 +3,16 @@
 # ------------------------------------------------------
 
 type Profile {
+  id: ID!
   name: String!
   description: String!
   links: [String!]!
+  skills: [Skill!]!
+}
+
+type Skill {
+  id: ID!
+  name: String!
 }
 
 type Query {

@@ -8,7 +8,7 @@ const app = await NestFactory.createApplicationContext(PrismaModule);
 try {
   const prisma = app.get(PrismaService);
 
-  await prisma.profile.upsert({
+  const { id: profileId } = await prisma.profile.upsert({
     where: {
       id: Singleton.ID,
     },
@@ -20,6 +20,17 @@ try {
         'Fullstack-разработчик с десятилетним опытом. Люблю нестандартные задачи.',
       links: ['https://github.com/GulgDev'],
     },
+  });
+
+  await prisma.skill.createMany({
+    data: [
+      'Web-разработка',
+      'Backend-разработка',
+      'Низкоуровневое программирование',
+      'Компьютерные науки',
+      'Решение задач',
+      'Английский язык',
+    ].map(name => ({ profileId, name })),
   });
 } finally {
   await app.close();
