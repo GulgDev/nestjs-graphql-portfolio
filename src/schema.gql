@@ -8,12 +8,27 @@ type Profile {
   description: String!
   links: [String!]!
   skills: [Skill!]!
+  experience: [Experience!]!
 }
 
 type Skill {
   id: ID!
   name: String!
 }
+
+type Experience {
+  id: ID!
+  company: String!
+  position: String!
+  startedAt: DateTime!
+  endedAt: DateTime
+  achievements: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Query {
   profile: Profile!
