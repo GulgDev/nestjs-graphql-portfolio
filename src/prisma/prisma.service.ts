@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '../generated/prisma/client.js';
-import { PrismaLibSql } from '@prisma/adapter-libsql';
+import { PrismaLibSql } from '@prisma/adapter-libsql/web';
 
 @Injectable()
 export class PrismaService extends PrismaClient {
