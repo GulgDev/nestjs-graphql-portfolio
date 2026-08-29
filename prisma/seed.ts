@@ -22,16 +22,19 @@ try {
     },
   });
 
-  await prisma.skill.createMany({
-    data: [
-      'Web-разработка',
-      'Backend-разработка',
-      'Низкоуровневое программирование',
-      'Компьютерные науки',
-      'Решение задач',
-      'Английский язык',
-    ].map(name => ({ profileId, name })),
-  });
+  for (const skill of [
+    'Web-разработка',
+    'Backend-разработка',
+    'Низкоуровневое программирование',
+    'Компьютерные науки',
+    'Решение задач',
+    'Английский язык',
+  ])
+    await prisma.skill.upsert({
+      where: { profileId_name: { profileId, name: skill } },
+      update: {},
+      create: { profileId, name: skill },
+    });
 } finally {
   await app.close();
 }
