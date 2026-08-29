@@ -15,7 +15,7 @@ try {
     update: {},
     create: {
       id: Singleton.ID,
-      name: 'Шутюк Еремей Юлианович',
+      name: 'Еремей Шутюк',
       description:
         'Fullstack-разработчик с десятилетним опытом. Люблю нестандартные задачи.',
       links: ['https://github.com/GulgDev'],
