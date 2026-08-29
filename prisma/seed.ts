@@ -66,6 +66,29 @@ try {
       update: experience,
       create: { profileId, ...experience },
     });
+
+  for (const project of [
+    // See https://github.com/GulgDev and
+    // https://github.com/search?q=author%3A%40me+is%3Amerged&type=pullrequests
+    // for more projects/contributions
+    { name: 'VR КвантуМ landing page', link: 'https://vrquantum.ru' },
+    { name: 'littlebag', link: 'https://github.com/GulgDev/littlebag' },
+    { name: 'Fregg', link: 'https://github.com/GulgDev/kalama-gamejam' },
+    { name: 'zovod', link: 'https://github.com/GulgDev/zovod' },
+    {
+      name: 'Роль Академии наук в развитии вычислительных методов',
+      link: 'https://github.com/GulgDev/numerical-methods',
+    },
+    {
+      name: 'Open-source contributions',
+      link: 'https://github.com/search?q=author%3A%40me+is%3Amerged&type=pullrequests',
+    },
+  ])
+    await prisma.project.upsert({
+      where: { name: project.name },
+      update: project,
+      create: { profileId, ...project },
+    });
 } finally {
   await app.close();
 }

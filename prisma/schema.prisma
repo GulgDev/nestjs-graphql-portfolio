@@ -21,6 +21,7 @@ model Profile {
   links       Json // an array of strings
   skills      Skill[]
   experience  Experience[]
+  projects    Project[]
 }
 
 model Skill {
@@ -43,4 +44,12 @@ model Experience {
   achievements String
 
   @@unique([profileId, company])
+}
+
+model Project {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  profileId Singleton
+  author    Profile   @relation(fields: [profileId], references: [id])
+  link      String    @unique
 }
