@@ -23,6 +23,7 @@ import { ProjectsModule } from './projects/projects.module.js';
         : join(process.cwd(), 'src/schema.gql'),
       graphiql: false,
       introspection: true,
+      path: '/',
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
 
