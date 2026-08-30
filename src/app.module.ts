@@ -22,11 +22,8 @@ import { ProjectsModule } from './projects/projects.module.js';
         ? true
         : join(process.cwd(), 'src/schema.gql'),
       graphiql: false,
-      plugins: [
-        process.env.NODE_ENV === 'production'
-          ? ApolloServerPluginLandingPageProductionDefault()
-          : ApolloServerPluginLandingPageLocalDefault(),
-      ],
+      introspection: true,
+      plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
 
     PrismaModule,
