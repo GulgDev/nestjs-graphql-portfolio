@@ -7,5 +7,13 @@
 # Git files
 .git
 
+# Environment variable files
+.env
+
+# Database files
+*.db
+*.db-*
+
 # Documentation
+LICENSE
 *.md
